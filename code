@@ -1,0 +1,94 @@
+# Scenario A: Finding the season of the year
+
+def find_season(country, month):
+    seasons = {
+        "Australia": {
+            "December": "Summer",
+            "January": "Summer",
+            "February": "Summer",
+            "March": "Autumn",
+            "April": "Autumn",
+            "May": "Autumn",
+            "June": "Winter",
+            "July": "Winter",
+            "August": "Winter",
+            "September": "Spring",
+            "October": "Spring",
+            "November": "Spring"
+        },
+        "Japan": {
+            "December": "Winter",
+            "January": "Winter",
+            "February": "Winter",
+            "March": "Spring",
+            "April": "Spring",
+            "May": "Spring",
+            "June": "Summer",
+            "July": "Summer",
+            "August": "Summer",
+            "September": "Autumn",
+            "October": "Autumn",
+            "November": "Autumn"
+        },
+        "Spain": {
+            "December": "Winter",
+            "January": "Winter",
+            "February": "Winter",
+            "March": "Spring",
+            "April": "Spring",
+            "May": "Spring",
+            "June": "Summer",
+            "July": "Summer",
+            "August": "Summer",
+            "September": "Autumn",
+            "October": "Autumn",
+            "November": "Autumn"
+        }
+    }
+    
+    if country in seasons and month in seasons[country]:
+        season = seasons[country][month]
+        return season
+    else:
+        return "Season information not available for the given country and month."
+
+# Scenario B: Comparing temperature readings
+
+def compare_temperature(city, temperature, time):
+    temperatures = {
+        "Australia": {
+            "Morning": 15,
+            "Evening": 20
+        },
+        "Japan": {
+            "Morning": 12,
+            "Evening": 16
+        }
+        # Add more cities and their temperature information here
+    }
+    
+    if city in temperatures and time in temperatures[city]:
+        average_temp = temperatures[city][time]
+        difference = temperature - average_temp
+        
+        if difference > 5:
+            return f"The temperature is {difference}⁰C above the average temperature."
+        elif difference < -5:
+            return f"The temperature is {abs(difference)}⁰C below the average temperature."
+        else:
+            return "The temperature is close to the average temperature."
+    else:
+        return "Temperature information not available for the given city and time."
+
+# Test the functions
+
+# Scenario A
+country = input("Enter the country name: ")
+month = input("Enter the month: ")
+print(find_season(country, month))
+
+# Scenario B
+city = input("Enter the city name: ")
+temperature = float(input("Enter the temperature: "))
+time = input("Enter the time (Morning/Evening): ")
+print(compare_temperature(city, temperature, time))
